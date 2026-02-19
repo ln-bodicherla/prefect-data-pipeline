@@ -1,0 +1,68 @@
+prefect:
+  flow_name: "claims_etl"
+  schedule:
+    cron: "0 6 * * *"
+  retries: 2
+  retry_delay: 300
+  concurrency_limit: 4
+
+paths:
+  raw: "./data/raw"
+  bronze: "./data/bronze"
+  silver: "./data/silver"
+  gold: "./data/gold"
+
+quality:
+  max_null_rate: 0.05
+  min_row_count: 1000
+  max_duplicate_rate: 0.01
+  freshness_hours: 24
+
+sources:
+  claims:
+    type: "csv"
+    path: "./data/raw/claims.csv"
+    schema:
+      claim_id: "string"
+      patient_id: "string"
+      provider_id: "string"
+      diagnosis_code: "string"
+      procedure_code: "string"
+      claim_amount: "float64"
+      claim_date: "datetime64"
+      status: "string"
+
+  providers:
+    type: "csv"
+    path: "./data/raw/providers.csv"
+    schema:
+      provider_id: "string"
+      provider_name: "string"
+      specialty: "string"
+      npi: "string"
+      state: "string"
+
+features:
+  provider:
+    - total_claims
+    - avg_claim_amount
+    - claim_denial_rate
+    - unique_patients
+    - specialty_concentration
+  patient:
+    - total_claims
+    - avg_claim_amount
+    - unique_providers
+    - diagnosis_diversity
+    - claim_frequency_days
+  temporal:
+    - rolling_7d_claims
+    - rolling_30d_amount
+    - day_of_week_pattern
+    - monthly_trend
+
+notifications:
+  enabled: true
+  channels:
+    - type: "log"
+      level: "INFO"
