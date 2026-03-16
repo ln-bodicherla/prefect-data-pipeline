@@ -1,57 +1,74 @@
-# Python
+
 __pycache__/
-*.py[cod]
-*$py.class
-*.so
-*.egg-info/
-dist/
-build/
-eggs/
-*.egg
-
-# Virtual environments
-venv/
-.venv/
-env/
-
-# Data files
-data/raw/*.csv
-data/raw/*.json
-data/bronze/*.parquet
-data/silver/*.parquet
-data/gold/*.parquet
-*.parquet
-
-# Prefect
+!.env.example
+!.env.sample
+.build/
+.DS_Store
+.eggs/
+.env
+.env.*
+.env.local
+.idea/
+.ipynb_checkpoints/
 .prefect/
 .prefectignore
-
-# IDE
-.idea/
+.swiftpm/
+.venv/
 .vscode/
-*.swp
-*.swo
-*~
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Logs
-*.log
-logs/
-
-# Environment
-.env
-.env.local
-
-# DuckDB
+*.app
+*.db
+*.db-shm
+*.db-wal
 *.duckdb
 *.duckdb.wal
-
-# Jupyter
-.ipynb_checkpoints/
-
-# Quality reports
-reports/
+*.egg
+*.egg-info/
 *.html
+*.ipa
+*.key
+*.log
+*.parquet
+*.pem
+*.py[cod]
+*.pyc
+*.secret
+*.so
+*.sqlite
+*.sqlite3
+*.swo
+*.swp
+*.xcodeproj/xcuserdata/
+*.xcworkspace/xcuserdata/
+*~
+*$py.class
+# Build
+# Data files
+# Databases
+# Dependencies
+# DuckDB
+# Environment
+# IDE
+# Jupyter
+# Logs
+# OS
+# Prefect
+# Python
+# Quality reports
+# Secrets
+# Virtual environments
+build/
+credentials*
+data/bronze/*.parquet
+data/gold/*.parquet
+data/raw/*.csv
+data/raw/*.json
+data/silver/*.parquet
+DerivedData/
+dist/
+eggs/
+env/
+logs/
+node_modules/
+reports/
+Thumbs.db
+venv/
