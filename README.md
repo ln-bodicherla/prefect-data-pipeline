@@ -35,7 +35,7 @@ This project demonstrates Prefect as a modern alternative to Apache Airflow:
 | Async Support | First-class async/await | Limited async support |
 | Dynamic Workflows | Native Python control flow | Complex with dynamic DAGs |
 
-**Decision**: Airflow was chosen for the production deployment due to its mature ecosystem, enterprise support contracts, and existing infrastructure. Prefect remains a strong candidate for greenfield projects.
+**Decision**: Airflow (see `airflow-etl-pipeline`) was chosen for the primary project due to its mature ecosystem and wide adoption. Prefect remains a strong candidate for greenfield projects.
 
 ## Project Structure
 
